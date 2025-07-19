@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mudika Siri - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://fav.farm/🌟">
+  <script src="https://kit.fontawesome.com/a2e0d5c6bd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" title="Go to top">⬆</button>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkToggle">🌙</button>
+
+  <!-- Navbar -->
+  <header id="header">
+    <nav class="navbar">
+      <div class="logo">Siri</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <h1>Hello, I'm <span class="typing"></span></h1>
+    <p>Web Developer Intern • Data Science Student</p>
+    <a href="resume.pdf" class="btn" download>📄 Download Resume</a>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m Mudika Siri, a BTech CES (Data Science) student passionate about web development and AI in healthcare. I build modern websites and work on impactful data-driven projects like breast cancer detection using CNN-RNN.</p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div>HTML</div>
+      <div>CSS</div>
+      <div>JavaScript</div>
+      <div>Python</div>
+      <div>Git & GitHub</div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <h3>Breast Cancer Detection</h3>
+        <p>A hybrid CNN-RNN model to detect stages of breast cancer (Normal, Beginning, Malignant) using mammogram images.</p>
+        <p><em>Currently under development</em></p>
+      </div>
+
+      <div class="project-card">
+        <h3>Personal Portfolio Website</h3>
+        <p>This responsive portfolio built with HTML, CSS, and JS showcases my projects, skills, and internship experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="socials">
+      <a href="mailto:sirimudika@gmail.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://github.com/siriii29" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/siri-mudika-5aa3322b7" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Mudika Siri. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Typing Animation -->
+  <script>
+    const text = ["Mudika Siri", "a Web Developer", "a Data Science Student"];
+    let i = 0, j = 0, currentText = "", isDeleting = false;
+
+    function type() {
+      currentText = text[i];
+      const typed = isDeleting ? currentText.slice(0, --j) : currentText.slice(0, ++j);
+      document.querySelector(".typing").textContent = typed;
+      if (!isDeleting && j === currentText.length) {
+        isDeleting = true;
+        setTimeout(type, 1000);
+      } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % text.length;
+        setTimeout(type, 500);
+      } else {
+        setTimeout(type, isDeleting ? 50 : 100);
+      }
+    }
+    type();
+  </script>
+
+  <!-- Scroll to Top Script -->
+  <script>
+    const btn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      btn.style.display = document.documentElement.scrollTop > 300 ? "block" : "none";
+    };
+    btn.onclick = () => {
+      document.documentElement.scrollTop = 0;
+    };
+  </script>
+
+  <!-- Dark Mode -->
+  <script>
+    const toggle = document.getElementById("darkToggle");
+    toggle.onclick = () => document.body.classList.toggle("dark");
+  </script>
+
+</body>
+</html>
